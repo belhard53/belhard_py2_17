@@ -1,0 +1,20 @@
+{
+    "users": [
+      {
+        "id": 1,
+        "login": "user1",
+        "password": "password123",
+        "email": "user1@example.com",
+        "role": "admin",
+        "created_at": "2023-01-01T12:00:00"
+      },
+      {
+        "id": 2,
+        "login": "user2",
+        "password": "qwerty",
+        "email": "user2@example.com",
+        "role": "user",
+        "created_at": "2023-02-01T14:30:00"
+      }
+    ]
+  }
