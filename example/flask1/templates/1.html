@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main page</title>
+    <style>
+
+        /* только те p которые внутри div */
+        div p{
+            margin: 5px;
+            padding: 10px;
+            background-color: rgb(215, 200, 233);            
+            height: 30px;
+            
+            /* изменения при изменении будут происходить 0,7 сек */
+            transition: all 0.7s;
+            
+        }
+
+        div p:nth-child(2n){ /*каждый второй*/
+            
+            background-color: rgb(191, 153, 234);
+        }
+        p span{
+            margin-right: 30px;
+        }
+
+        div p:hover{
+            /* hover - указывает что должно происходить при наведении мышкой */
+            box-shadow: 6px 8px 7px 0px black;
+            background-color: rgb(138, 81, 208);
+            font-size: 22px;
+        }
+    </style>
+</head>
+<body>
+    <h1>{{ h }}</h1>
+
+    {% set h1=123 %}
+
+    {% if h1 %}
+        <p> {{ h1 }} </p>
+    {% else %}
+        <p>нет h</p>
+    {% endif %}
+    
+    <!-- div тэг указывающий чт тут блок чего-то, в данном случае с пользователями -->
+    <div>
+        <h4>Пользователи</h4>
+        {% for user in users%}
+            <p> 
+                <span style="color: rgb(122, 101, 127); font-style:italic;"> {{ loop.index }} </span>
+                {{ user }} 
+            </p>
+        {%endfor%}
+    </div>
+    
+    <p>
+        <a href="/">На главную</a>
+    </p>
+</body>
+</html>

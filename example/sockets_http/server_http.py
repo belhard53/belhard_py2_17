@@ -3,12 +3,14 @@ import socket
 # HOST = socket.gethostname()
 # print(HOST)
 
-HOST = ('127.0.0.1', 7771)
+HOST = ('0.0.0.0', 7777)
 
 # SOCK_DGRAM - UDP,  SOCK_STREAM - TCP, AF_INET - ip v4
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 sock.bind(HOST)
 sock.listen()
+
+print(f'--- start {HOST[0]}:{HOST[1]} ---')
 
 def send_file(file_name, conn):
     try:
@@ -81,6 +83,12 @@ while True:
             if path == '/':
                 # если главная страница открываем 1.html
                 send_file('1.html', conn)
+            elif path == '/test1/':
+                html = "<h1> ТЕСТ 1 </h1>"
+                conn.send(OK)
+                conn.send(HEADERS)
+                conn.send(html.encode())
+                
             else:
                 # во всех остальных случаях - 404
                 conn.send(ERR_404)
