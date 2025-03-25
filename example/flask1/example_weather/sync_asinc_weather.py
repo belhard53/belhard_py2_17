@@ -6,6 +6,9 @@ import requests
 n_step:int = 0
 
 async def aget_weather(city:str, n_city):
+    '''
+    асинхронная функция получения погоды
+    '''
     global n_step
     async with ClientSession() as session:
         url = f'http://api.openweathermap.org/data/2.5/weather'
@@ -20,11 +23,15 @@ async def aget_weather(city:str, n_city):
     
 
 def get_weather(city):    
-        url = f'http://api.openweathermap.org/data/2.5/weather'
-        params = {'q': city, 'APPID': '2a4ff86f9aaa70041ec8e82db64abf56'}
-        res = requests.get(url,params).json()
-        print(res)        
-        print(f'{city}: {res["weather"][0]["main"]}')
+    '''
+    синхронная функция получения погоды
+    '''
+    url = f'http://api.openweathermap.org/data/2.5/weather'
+    params = {'q': city, 'APPID': '2a4ff86f9aaa70041ec8e82db64abf56'}
+    res = requests.get(url,params) # делаем GET запрос
+    res = res.json() # так как возвращают json, конвертируем его в словарь
+    # print(res)        
+    print(f'{city}: {res["weather"][0]["main"]}')
     
 
 
@@ -50,7 +57,9 @@ cities = ['Moscow', 'St. Petersburg', 'Rostov-on-Don', 'Kaliningrad', 'Vladivost
 
 t = time.time()
 
-# asyncio.run(async_main(cities*4))
-main(cities)
+
+# 2 варианта на выбор
+# asyncio.run(async_main(cities*4)) # асинхронный вариант
+main(cities) # синхронный вариант
 
 print(time.time() - t)
