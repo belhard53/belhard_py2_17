@@ -1,7 +1,9 @@
 from flask import Flask, render_template
 import os
 
-BASE_DIR = os.getcwd()
+# BASE_DIR = os.getcwd()
+BASE_DIR = os.path.dirname(__name__) # так работает если проект открыт из любого места
+# print(BASE_DIR)
 
 users=['user1', 'user2', 'user3', 'suer4', 'user5', 'user6']
 
@@ -9,7 +11,10 @@ app = Flask(__name__,
             static_folder=os.path.join(BASE_DIR, 'static'),
             template_folder=os.path.join(BASE_DIR, 'templates'))
 
-# MVC
+# модель MVC
+    # model
+    # view
+    # controller
 
 # app.add_url_rule("/", index) # если так  тогда без @app.route
 

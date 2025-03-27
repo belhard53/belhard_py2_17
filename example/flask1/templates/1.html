@@ -13,6 +13,7 @@
             background-color: rgb(215, 200, 233);            
             height: 30px;
             
+            
             /* изменения при изменении будут происходить 0,7 сек */
             transition: all 0.7s;
             
@@ -29,6 +30,7 @@
         div p:hover{
             /* hover - указывает что должно происходить при наведении мышкой */
             box-shadow: 6px 8px 7px 0px black;
+            box-shadow: 6px 6px 11px 1px black;
             background-color: rgb(138, 81, 208);
             font-size: 22px;
         }
@@ -36,6 +38,7 @@
 </head>
 <body>
     <h1>{{ h }}</h1>
+    <p> Посещений {{ n }} </p>
 
     {% set h1=123 %}
 

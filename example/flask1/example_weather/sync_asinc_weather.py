@@ -28,11 +28,15 @@ def get_weather(city):
     '''
     url = f'http://api.openweathermap.org/data/2.5/weather'
     params = {'q': city, 'APPID': '2a4ff86f9aaa70041ec8e82db64abf56'}
-    res = requests.get(url,params) # делаем GET запрос
+    res = requests.get(url, params) # делаем GET запрос
+    # res.content
+    # res.text
     res = res.json() # так как возвращают json, конвертируем его в словарь
-    # print(res)        
+    # pprint(res)        
     print(f'{city}: {res["weather"][0]["main"]}')
-    
+
+# import pprint
+# pprint.pprint()    
 
 
 async def async_main(cities_):
@@ -59,7 +63,7 @@ t = time.time()
 
 
 # 2 варианта на выбор
-# asyncio.run(async_main(cities*4)) # асинхронный вариант
-main(cities) # синхронный вариант
+asyncio.run(async_main(cities*4)) # асинхронный вариант
+# main(cities) # синхронный вариант
 
 print(time.time() - t)
