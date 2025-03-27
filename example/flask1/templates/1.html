@@ -34,22 +34,31 @@
             background-color: rgb(138, 81, 208);
             font-size: 22px;
         }
+
+        .red{
+            color: red;
+        }
+        
+        #users{
+            font-size: 25px;
+        }
     </style>
 </head>
 <body>
-    <h1>{{ h }}</h1>
+    
+    <h1 class="red bold box-shadow">{{ h }}</h1>
     <p> Посещений {{ n }} </p>
 
     {% set h1=123 %}
 
-    {% if h1 %}
+    {% if h1 == True %}
         <p> {{ h1 }} </p>
     {% else %}
         <p>нет h</p>
     {% endif %}
     
     <!-- div тэг указывающий чт тут блок чего-то, в данном случае с пользователями -->
-    <div>
+    <div name="users" id="users" class="red">
         <h4>Пользователи</h4>
         {% for user in users%}
             <p> 
@@ -59,7 +68,7 @@
         {%endfor%}
     </div>
     
-    <p>
+    <p class="red">
         <a href="/">На главную</a>
     </p>
 </body>

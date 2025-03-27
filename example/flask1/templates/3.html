@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .error{
+            color: red;
+        }
+
+        label{
+            display: inline-block;
+            width: 70px;
+        }
+        form{
+            width: 300px;            
+            /* background-color: antiquewhite; */
+            
+        }
+        fieldset{
+            background-color: rgb(224, 215, 226);
+            border-radius: 10px;
+            box-shadow: 5px 5px 6px 0px #969090;
+        }
+        legend{
+            text-shadow: 8px 9px 2px gray;
+        }
+
+        input:focus{
+            /* срабатывает только когда элемент в фокусе */
+            background-color: rgb(232 208 253);
+        }
+
+    </style>
+</head>
+<body>
+    
+
+    <!-- создаем переменную user_name, как будто нам ее прислали из вью-функции-->     
+    {% set user_name = 'Vasya' %}   
+    
+    <!-- for er in err -->
+        <!-- <p class="error"> {{er}} </p> -->
+    
+    <!-- <form action="/get_form/" method="post"> -->
+    <form method="post">
+        <fieldset>
+            <legend>Форма 1</legend>
+            <p>
+                <label for="login">Логин</label>
+                <input type="text" id="login" placeholder="login" name="login123" value={{user_name}}>
+            </p>
+            
+            <p>
+                <label >Пароль</label>
+                <input type="password" name="password123" class="password">            
+            </p>
+            <p>
+                <label >Пароль 2</label>        
+                <input type="password" name="re_password123" class="password">
+            </p>
+            <!-- <input type="submit" value="OK"> -->
+            <input type="submit">
+            <input type="reset">
+        </fieldset>
+    </form>
+    
+</body>
+</html>
