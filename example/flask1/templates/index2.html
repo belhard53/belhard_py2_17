@@ -11,23 +11,51 @@
             /* background-image: url(); */            
         }
 
-        a{
-            
+        .button {            
             padding: 10px;
             border: 1px solid black;
-            margin: 50px;
+            margin: 30px;
+            background-color: rgb(185, 152, 219);
+            border-radius: 5px;
+            transition: 500ms;
+        }
+        
+        .button:hover { 
+            background-color:rgb(226 208 243);
+            /* box-shadow: 6px 7px 13px 0px grey; */
+        }
+
+        .fig-wrapper{
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        figcaption{            
+            width: 300px;
+            text-overflow: clip;
         }
     </style>
 </head>
 <body>    
     <p>        
-        <a href="/s1/">страница2</a>
-        <a href="/s3/">форма</a>
+        <a class="button" href="/s1/">страница2</a>
+        <a class="button" href="/s3/">форма</a>
     </p>
     <p> Посещений {{n}} </p>
     <br>
-    <img src="https:\/\/randomfox.ca\/images\/113.jpg" alt="123" width="200">
-    
+    <div class="fig-wrapper">
+        <!-- вариант картинки из интернета -->
+        <figure>
+            <img width="300"  src="https://koshka.top/uploads/posts/2021-12/thumbs/1638613286_70-koshka-top-p-milii-kotik-na-avatarku-77.jpg" alt="123" >
+            <figcaption> вариант картинки из интернета </figcaption>
+        </figure>
+        
+        <figure>
+        <!-- вариант картинки из проекта - ссылаемся на папку static которую указали при запуске flask -->
+            <img width="300"  src="{{ url_for('static', filename='pic/cat.jpg') }}" alt="">
+            <figcaption>вариант картинки из проекта - ссылаемся на папку static которую указали при запуске flask</figcaption>
+        </figure>
+    </div>
 </body>
 <script>
 
