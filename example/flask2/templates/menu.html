@@ -1,0 +1,16 @@
+
+<li><a href="/">Главная</a></li>
+{% if 'user_id' in session%}
+    <li><a href="/duck/">Утка</a></li>
+    <li><a href="/fox/1/">Лиса</a></li>
+    <li><a href="/clicker/">Кликер</a></li>
+    <li><a href="/weather-minsk/">Погода в Минске</a></li>
+    {% if display_link %}
+        <li><a href="/weather-reg/">Погода в обл. центрах</a></li>
+    {% endif %}
+    <li><a href="/logout/">Выйти</a></li>
+{% else %}
+    <li><a href="/login/">Войти</a></li>
+    <li><a href="/register/">Регистрация</a></li>
+{% endif %}
+    

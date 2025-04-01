@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="form-wrapper">
+
+    <form action="/register" method="POST">
+        <div class="form-group">
+            <label for="username">Имя и фамилия пользователя:</label>
+            <input type="text" id="username" name="username" value="{{username}}" required>
+        </div>
+        <div class="form-group">
+            <label for="login">Логин:</label>
+            <input type="text" id="login" name="login" value="{{login}}" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" value="{{email}}" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Пароль:</label>
+            <input type="password" id="password" name="password"  required>
+        </div>
+        <div class="form-group">
+            <label for="age">Возраст:</label>
+            <input type="number" id="age" name="age" value="{{age}}" required>
+        </div>
+        <button class="button_register" type="submit">Зарегистрироваться</button>
+    </form>
+</div>
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul>
+                {% for message in messages %}
+                    <li style="color: red;">{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+{% endblock %}
+
+
+<!-- заменяем блок меню но при этом что бы его не переписывать заново
+вставляем сюда его содержимое через super() - наследуем -->
+<!-- т.о. останется старое меню и к нему добавится новое -->
+{% block menu1%}
+    {{ super ()}}
+    <li><a href="/register/">доп меню1</a></li>
+    <li><a href="/register/">доп меню2</a></li>
+{% endblock%}

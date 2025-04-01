@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content%}
+    <h1>Погода в областных центрах</h1>
+        <div class="weather-container">
+            {% for weather in weather_data %}
+            <div class="weather-box">
+                <h2>{{ weather.name }}</h2>
+                <p>Условия: {{ weather.weather[0].description }}</p>
+                <p>Температура: {{ weather.main.temp }}°C</p>
+                <p>Ощущается как: {{ weather.main.feels_like }}°C</p>
+                <p>Давление: {{ weather.main.pressure }} hPa</p>
+                <p>Влажность: {{ weather.main.humidity }}%</p>
+            </div>
+            {% endfor %}
+        </div>
+{% endblock%}
+

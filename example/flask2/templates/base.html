@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask site</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css//style.css') }}">
+    
+    
+</head>
+<body>
+    <header>
+        {% if 'user_id' in session%}
+        <p>Пнриветствуем Вас, {{session['username']}}!</p>
+        {% endif %}
+
+        <nav class="topnav">
+            <ul>
+                
+                
+                
+                
+                <!-- если в других шаблонах будет блок menu1 этот блок будет заменен -->
+                <!--  т.о. на странице "Регистрация"  появится дополнительное меню только для этой станицы -->
+                <!-- смотреть register.html -->
+                {% block menu1 %}
+                <!-- загружаем меню из отдельного файла -->
+                {% include 'menu.html' %}        
+                {% endblock %}
+
+
+            </ul>
+        </nav>
+
+    </header>
+    <main class="content">
+        {% block content %}
+        {% endblock %}
+    </main>
+
+</body>
+</html>

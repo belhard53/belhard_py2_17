@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content%}
+        <h1>Погода на сегодня в {{weather.name}}</h1>
+        <p>Погодные условия: {{weather.weather[0].description}}</p>
+        <p>Текущая температура: {{weather.main.temp}}°C, ощущается как {{weather.main.feels_like}}°C</p>
+        <p>Давление: {{weather.main.pressure}} hPa</p>
+        <p>Влажность: {{weather.main.humidity}}%</p>
+{% endblock%}
+

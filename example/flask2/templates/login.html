@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% if message %}
+        <p>{{ message }}</p>
+    {% endif %}
+
+    <div class="form-wrapper">
+        <form action="/login" method="POST">
+            {% if err %}
+                <p style="color:red">{{ err }}</p>
+            {% endif %}
+
+            <div class="form-group">
+                <label for="login">Логин:</label>
+                <input type="text" id="login" name="login" value="{{login}}" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Пароль:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button class="button_login" type="submit">Войти</button>
+            <div class="button_register">
+                <a href="/register/">Регистрация</a>
+            </div>
+
+        </form>
+
+    </div>
+{% endblock %}
