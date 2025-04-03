@@ -1,0 +1,63 @@
+*{box-sizing:content-box;}
+
+
+
+.cl1{
+    background-color: bisque;
+    border: 2px solid black;
+    padding: 10px;
+    margin: 10px;
+    width: 200px;
+    height: 200px;
+    display: inline-block;
+    text-align: center;
+    line-height: 200px;
+    transition: all 550ms;
+}
+
+.cl1:hover{
+    box-shadow: 2px 5px 12px black;
+}
+
+
+.wrapper{
+    margin: auto; /*весь блок по центру*/
+    text-align: center; /*элементы внутри по центру*/
+
+    margin-top: 100px;
+    background-color: darkgray;
+    /* max-height: 550px; */
+    min-height: 250px;
+    width: 550px;
+
+    /* overflow: scroll; */
+    position: relative;
+}
+
+.cl2{
+    /* position:absolute; */
+    /* position: relative; */
+    position: fixed;
+    right: 10px;
+    top: 10px;
+    /* left: 0px; */
+    /* bottom: -100px; */
+
+    /* z-index: 10; */  
+
+    width: 70px;
+    height: 60px;
+
+    background-image: url(https://texterra.ru/upload/img/2014-07-14-tex-02.jpg);
+    background-size: cover;
+
+    cursor:pointer;
+}   
+
+.cl2:active{
+    transform: translateY(3px);
+}
+
+.cl2:active + div{
+    background-color: blueviolet;
+}

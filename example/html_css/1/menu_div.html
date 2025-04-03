@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @media (max-width: 100px) {
+
+        }
+        @media (max-width: 930px) and (min-width: 470px) {
+        }
+        .block1{
+            /* clear: both; очистка после float*/ 
+            margin: auto;
+            text-align: center;
+            padding: 50px;
+            /* width: 400px; */
+            width: 100%;
+            max-width: 600px;
+            min-width: 300px;
+        }
+        
+        .block1 > :not(:hover){
+            background-color: rgb(198, 179, 216);
+        }
+
+        .cl1{
+            display: inline-block;
+            width: 15vh;
+            height: 15vh;
+            line-height: 15vh;
+            border: 1px solid;
+            text-align: center;
+            margin: 5px;
+            transition: all 400ms;
+            cursor: pointer;
+            font-size: 3vh;
+        }
+
+        /* .cl1:nth-child(2n){
+            background-color: antiquewhite;
+        } */
+
+        .cl1:hover {
+            transform: scale(1.9);
+            box-shadow: 3px 3px 9px 2px gray;
+            /* transform: rotate(360deg); */
+            transform: scale(1.1);
+        }
+
+    </style>
+</head>
+<body>
+    <nav>
+        <style>
+            nav{
+                /* position: fixed; */
+                text-align: center; 
+                /* margin: auto;  */
+            }            
+            /* ul>li*5{menu$}>ol>li*3>a{submenu$$} */
+            a{text-decoration: none;}            
+            ul, ol{
+                padding: 0;
+                list-style: none;
+            }
+            ul > li{                
+                /* float: left;        */
+                display: inline-block;
+                width: 60px;
+                padding: 10px;
+                text-align: center;                
+                background-color: #e6eeac;
+                transition: all 500ms;
+                
+            }
+            
+            ol{
+                /* display: block; */
+                /* display: none; */
+                position: absolute;                
+                transition: all 1000ms;           
+                
+                /* transform: scale(0); */
+                opacity: 0;
+            }
+            ol > li {
+                position: relative;
+                padding: 10px;
+                background-color: rgb(236, 215, 215);                
+                z-index: 10;          
+                transition: all 400ms;  
+            }
+            
+            ul li:hover ol{
+                display: block;
+                
+                /* transform: scale(1.2); */
+                opacity: 1;
+            }
+
+            ul > li:hover{
+                background-color: rgb(244, 194, 129);
+                box-shadow: 2px 3px 5px gray;
+            }            
+            ol > li:hover{
+                background-color: rgb(211, 184, 184);
+                transform: translateX(10px);
+            }
+
+            
+            
+        </style>
+        <ul>
+            <li> 
+                menu1
+                <ol>
+                    <li><a href="">submenu01</a></li>
+                    <li><a href="">submenu02</a></li>
+                    <li><a href="">submenu03</a></li>
+                </ol>
+            </li>
+            <li>menu2
+                <ol>
+                    <li><a href="">submenu03</a></li>
+                    <li><a href="">submenu04</a></li>
+                    <li><a href="">submenu05</a></li>
+                </ol>
+            </li>
+            <li>menu3
+                <ol>
+                    <li><a href="">submenu06</a></li>
+                    <li><a href="">submenu07</a></li>
+                    <li><a href="">submenu08</a></li>
+                </ol>
+            </li>
+            <li>
+                <a href="">menu4</a>
+            </li>
+            <li>
+                <a href="">menu5</a>                
+            </li>
+        </ul>
+    </nav>
+
+    <div class="block2">
+        <style>
+            .block2{
+                background-color: rgb(240, 230, 243);
+                width: 80px;
+                height: 100%;
+                position: absolute;
+                left: -60px;
+                /* left: 0; */
+                top:0px;
+                transition: all 500ms ease-in;
+            }
+            .block2:hover{
+                left: 0;
+            }
+            .block2 > ul > li{
+                position: relative;
+                width: 80px;
+                padding: 5px 0 5px 0;
+                background-color: #aaaaaa00;
+                text-align: left;
+                padding-left: 5px;
+                text-shadow: 3px 3px 3px rgb(101, 99, 99);                
+            }
+            .block2 > ul > li:hover{
+                transform: translateX(10px);
+            }
+            .icons{
+                /* display: inline-block; */
+                margin-left: 4px;
+                opacity: 0.4;
+                position: absolute;
+                margin: 1px 0 0 3px;
+                /* box-shadow: 3px 3px; */
+                filter: drop-shadow(3px 2px 2px);
+            }
+
+        </style>
+        <ul>
+            <li>
+                меню01 
+                <img class="icons" width="15" src="icon1.png" alt="">
+            </li>
+            <li>меню02</li>
+            <li>меню03</li>
+            <li>меню04</li>
+            <li>меню05</li>
+            <li>меню06</li>
+            <li>меню07</li>
+            <li>меню08</li>
+            <li>меню09</li>
+            <li>меню10</li>
+            <li>меню11</li>
+            <li>меню12</li>
+            <li>меню13</li>
+            <li>меню14</li>
+            <li>меню15</li>
+        </ul>
+
+
+    </div>
+    <div class="block1">
+        <style>
+            .block1{
+                background-color: rgb(249, 237, 222);
+            }
+        </style>
+        <div class="cl1">001 </div>
+        <div class="cl1">002</div>
+        <div class="cl1">003</div>
+        <div class="cl1">004</div>
+        <div class="cl1">005</div>
+        <div class="cl1">006</div>
+        <div class="cl1">007</div>
+        <div class="cl1">008</div>
+    </div>
+
+
+    
+
+</body>
+</html>
+

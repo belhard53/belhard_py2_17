@@ -1,0 +1,42 @@
+<style>
+    body{
+        height: 100vh;
+        width: 100vw;
+    }
+    header, footer{
+        background-color: aquamarine;
+        height: 20%;
+    }
+    #main{
+        display: flex;
+        min-height: 60%;
+        
+    }
+
+    nav, aside{
+        flex-basis: 20%;
+        background-color: bisque;
+    }
+    article{
+        flex: 1;
+
+    }
+
+    nav{
+        order: -1;
+    }
+    
+    
+</style>
+
+
+<body>
+    <header>Шапка</header>
+    <div id="main">
+        <article>Статья</article>
+      <nav>Навигация</nav>
+      
+      <aside>Боковая панель</aside>
+    </div>
+    <footer>Подвал</footer>
+  </body>

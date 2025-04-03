@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>  
+        body{
+            background: rgb(235, 223, 223);
+        }     
+        .cl1{
+            width: 400px;
+            background: rgb(219, 186, 186);
+            left: 100px;
+            position: relative;
+        }
+        .cl2{
+            /* чилд absalut будет рисоваться отсюда*/
+            /* position: relative;  */
+            /* position: absolute;  */
+            
+            /* чилд absalut будет рисоваться от начала экрана*/
+            /* position: static;  */
+        }
+
+        .modal{
+            background-color: rgba(39, 2, 48, 0.7);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            display: none;            
+        }
+
+        .modal-dialog{
+            position: fixed;
+            left: 50%;
+            top: 40%;
+            transform: translate(-50%, -50%);
+            /* height: 40%; */
+            width: 50%;
+            background-color: antiquewhite;
+            box-shadow: 3px 3px 10px 1px rgb(0, 0, 0);
+            border-radius: 10px;
+            
+            
+        }
+
+        .btn-close{
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            font-size: 30px;
+            text-decoration: none;
+            height: 25px;
+            width: 25px;
+            border-radius: 50%;
+            background: rgba(243, 112, 112, 0.9);
+            font-weight: 900;
+            text-shadow: 1px 1px 1px grey;
+            transition: all 900ms;
+        }
+
+        .btn-close:hover{
+            background: rgba(236, 148, 148, 0.9);
+            transform: rotate(180deg);
+        }
+        .modal-header{
+            text-align: center;
+            background-color: bisque;
+            margin-top: 10px;
+            height: 10%;
+            line-height: 25px;
+        }
+        .modal-body{           
+            height: 100%;
+            width: 100%;
+            text-align: center;
+            margin-top: 20px;
+            
+        }
+        .modal-body * {
+            margin: 3px;
+        }
+
+        .modal:target{
+            display: block;
+        }
+        input{
+            width: 80%;
+        }
+        /* #close{display:none} */
+
+        .a_modal{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            display: block;
+            cursor:auto;
+        }
+    </style>
+</head>
+<body>
+    <a href="#modal-one" class="btn-modal">Открыть модальное окно</a>
+    <div class="cl1">
+        
+    </div>
+    <div class="cl2">
+        <div class="modal" id="modal-one" aria-hidden="true">
+            
+            <!-- а для того чтобы закрыть кликом мимо окна -->
+            <a href="#" class="a_modal"></a> 
+            
+            <div class="modal-dialog">
+                <div class="modal-header">
+                    
+                    Заголовок модального окна
+                    <a href="" class="btn-close" aria-hidden="true">×</a>
+                    
+                </div>
+                <div class="modal-body">
+                    Содержимое модального окна
+                    <form action="">
+                        <fieldset>
+                            <legend>forma111</legend>
+                            <input type="text">
+                            <input type="text"><br>
+                            <input type="text"><br>
+                            <input type="text"><br>
+                            <input type="text"><br>
+                            <input type="submit">
+
+
+                        </fieldset>
+                        
+                    
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+
+</body>
+</html>

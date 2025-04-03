@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    
+
+    <style>
+        body{
+            border: 1px solid;
+            box-sizing: border-box;
+        }
+        
+        
+        
+        div{
+            border: 1px solid;
+            margin: 5px;
+            padding: 5px;
+        }
+        div>div{
+            
+            
+        }
+
+        .container{
+            height: 90vh;
+            width: 90vw;
+            background-color: rgb(178, 224, 228);
+            margin: auto;
+            padding: 10px;
+        }
+        .container>div{
+            margin: 10px;
+        }
+        #one{
+            height: 10vh;
+            background-color: aquamarine;
+        }
+
+        #two{
+            background-color: rgb(112, 222, 186);
+            margin-top: 50px;
+            
+        }
+       
+        
+        #six{
+            height: 10vh;
+            background-color: aquamarine;
+        }
+        .in1{
+            background-color: aquamarine;
+            width: 73%;
+            float: left;
+        }
+        .in2{
+            background-color: aquamarine;
+            width: 20%;
+            /* margin-top: -20px; */
+            float: right;
+            
+            
+        }
+        .inline{            
+            height: 60vh;
+            
+        }
+        .article{
+            margin-top: 20px;
+            background-color: rgb(155, 233, 233);
+            height: 50px;
+        }
+        .section{
+            /* height: 48%; */
+            margin-top: 30px;
+            padding-bottom: 30px;
+            background-color: rgb(112, 222, 186);
+            he
+        }
+    </style>
+        
+        
+    <div class="container"> 
+        <div id="one">Header
+            <div id="two">Nav</div> 
+        </div> 
+        
+            <div class="inline in1">
+                
+                <div class="section">Section
+                    <div class="article">Article1</div>
+                    <div class="article">Article2</div>
+                    <div class="article">Article3</div>
+
+                </div>          
+                <div class="section">Section
+                    <div class="article">Article</div>
+
+                </div>
+            </div>
+            <div class="inline in2">
+                Aside
+                <!-- <div id="four">Aside</div>    -->
+            </div>
+        <div style="clear: both; border: none; height: 0px;"></div> 
+        <div id="six">Footer</div> 
+    </div> 
+          
+
+
+</body>
+</html>
+
