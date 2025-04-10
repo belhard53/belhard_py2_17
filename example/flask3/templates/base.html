@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Квизы</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='quiz.css') }}"> -->
+</head>
+<body>
+    
+    <header >Header        
+        <nav>
+            <ul class="main-menu">
+                {% block main_menu %}
+                <li><a href="/quiz/">КВИЗ</a></li>
+                <li><a href="#">menu1-2</a></li>
+                <li><a href="#">menu1-3</a></li>
+                {% endblock %}
+            </ul>
+        </nav> 
+        
+    </header>         
+    
+    <main>
+
+        <section class="info">
+            <p class="base-info">Section</p>
+            {% block content1_head %}
+                <h2>Это базовый шаблон</h2>
+                <h2>Все остальные шаблоны загружаются внутри него</h2>
+            {% endblock %}
+            
+            {% block content1 %}
+                Контент 1
+            {% endblock %}
+        </section>
+        
+        
+        <section class="content">   
+            <p class="base-info">Section</p>
+
+            {% block content2_head %}
+                <h1>Заголовок2</h1>
+            {% endblock %}
+            
+        
+            {% block content2 %}
+                Контент 2
+            {% endblock %}
+        
+    </section>
+    </main>  
+    
+    <aside>Aside</aside>   
+    
+    <footer>Footer</footer> 
+    
+
+    
+</body>
+
+{% if html_config['debug'] %}    
+    <script type="text/javascript">
+        setTimeout("window.location.reload()",2000)
+    </script>
+{% endif %}
+</html>
