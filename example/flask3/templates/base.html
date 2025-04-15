@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Квизы</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
-    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='quiz.css') }}"> -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='quiz.css') }}">
 </head>
 <body>
     
@@ -14,8 +14,8 @@
             <ul class="main-menu">
                 {% block main_menu %}
                 <li><a href="/quiz/">КВИЗ</a></li>
-                <li><a href="#">menu1-2</a></li>
-                <li><a href="#">menu1-3</a></li>
+                <li><a href="">menu1-2</a></li>
+                <li><a href="">menu1-3</a></li>
                 {% endblock %}
             </ul>
         </nav> 
@@ -41,7 +41,7 @@
             <p class="base-info">Section</p>
 
             {% block content2_head %}
-                <h1>Заголовок2</h1>
+                
             {% endblock %}
             
         

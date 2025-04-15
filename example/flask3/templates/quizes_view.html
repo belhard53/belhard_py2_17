@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block main_menu %}
+    {{ super() }}
+    {% include 'quiz_menu.html' %}    
+{% endblock %}
+
+
+{% block content1_head %}
+    <h2>КВИЗЫ <a class="button" href="#modal1">+</a></h2>    
+{% endblock %}
+
+{% block content1 %}    
+    <div class="quizes quiz_form">
+        <div class="quiz-row quiz-hrow">
+            <div class="quiz-col">№</div>
+            <div class="quiz-col">Название</div>
+            <div class="quiz-col">Сколько вопросов</div>
+        </div>
+        {% for q in quizes %}
+        <a href="/quiz_edit/{{q.id}}">
+            <div class="quiz-row">
+                <div class="quiz-col">{{ loop.index+1 }}</div>
+                <div class="quiz-col">{{ q.name }}</div>
+                <div class="quiz-col">{{ len(q.question) }}</div>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+
+
+    {% include 'modal_quiz_add.html' %}
+
+{% endblock %}
+
+{% block content2_head %}
+    <h2>Вопросы  <a class="button" href="#modal2">+</a></h2>
+{% endblock %}
+
+
+{% block content2 %}
+
+
+<div class="questions quiz_form">
+    {% include 'form_questions_tab.html' %}
+</div>
+{% include 'modal_question_add.html' %}    
+{% endblock %}

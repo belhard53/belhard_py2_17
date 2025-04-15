@@ -1,16 +1,8 @@
-
 <style>
-    .quiz_form{
-        border: 1px solid black;
-        border-radius: 10px;
-        width: 40%;
-        height: 40%;
-        min-width: 200px;
-        min-height: 150px;
-        background-color: rgb(231 221 234);
-        text-align: center;
-        box-shadow: 4px 4px 7px 0px #393737;
-    }
+    
+   
+    
+    
 </style>
 
 {% extends "base.html" %}
@@ -21,7 +13,6 @@
     {% include 'quiz_menu.html' %}    
 {% endblock %}
 
-
 {% block content2 %}
 <div class="start_form quiz_form">
     <form action="/quiz/" method="post">
@@ -31,8 +22,9 @@
             <select name="quiz" >
                 {% for q in quizes %}
                     <option value="{{ q.id }}"> {{ q.name }}</option>
-                    <!-- <option value="{{ loop.index }}"> {{ q }}</option> -->
+
                 {% endfor%}
+
             </select>
             <div>
                 <input class="button" type="submit" value ='Начать КВИЗ'>
