@@ -115,3 +115,10 @@ def view_result():
 
 
 app.run(debug=True)
+
+
+
+
+# .anwer_row input[type=radio]:checked + label{
+# background-color: #4a0f7473;
+# }
