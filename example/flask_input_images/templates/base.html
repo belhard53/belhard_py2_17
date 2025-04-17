@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <style>
+        
+        
+    </style>
+    
+    
+</head>
+<body>
+    <header>
+        {% include 'menu_css.html' %}
+    </header>
+
+    <aside>
+        боковое меню
+    </aside>
+    <main>
+        <section>
+            {% block form2%}
+            {% include 'form1.html' %}
+            {% endblock %}
+        </section>    
+        
+        <section>
+            {% include 'cards_css.html' %}
+        </section>
+    </main>
+    <footer>
+        Контакты и карта сайта
+    </footer>
+    
+
+    
+
+    
+
+</body>
+</html>

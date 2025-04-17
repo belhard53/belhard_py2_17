@@ -1,0 +1,40 @@
+
+
+
+
+    <div class="form1">
+        <style>
+            .f_err{color: red; font-size: 12px;}
+            .form1{
+                background-color: rgb(223, 201, 226);
+                
+            }
+            .form1 * {
+                margin: 5px;
+            }
+
+        </style>
+        {%for e in err%}
+        <p class="f_err"> {{e}} </p>
+        {%endfor%}
+
+        <div class="form_container">    
+            <p>Форма 1</p>
+            <form action="" method="post" enctype="multipart/form-data">        
+                <input type="text"   placeholder="Ваше имя1" name="name"  value = "{{ data['name'] }}" ><br>
+                <input type="email"  placeholder="email1"    name="email" value="{{data['email']}}" ><br>
+                <input type="number" placeholder="Возраст"  name = "age" value = "{{ data['age']}}" ><br>
+                <select id="data1" name = "select1"><br>
+                    <option value="v1" {% if data['select1']=='v1' %} selected {% endif %} >Дата1</option>
+                    <option value="v2" {% if data['select1']=='v2' %} selected {% endif %} >Дата2</option>
+                    <option value="v3" {% if data['select1']=='v3' %} selected {% endif %} >Дата3</option>
+                </select><br>
+                <input type="file" placeholder="Ваш файл" name = "file1"><br>
+
+                <input type="reset">
+                <input type="submit">
+
+            </form>
+        </div>
+    </div>
+

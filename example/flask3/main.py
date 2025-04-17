@@ -29,6 +29,13 @@ html_config = {
 
 with app.app_context():
     db_add_new_data()
+    
+    quizes = Quiz.query.all() 
+    print(quizes)
+    quiz = quizes[0]
+    q = quiz.question # все вопросы
+    print(111, q)
+    print(222, q[0], q[0].quiz) # посмотреть в какие квизы входит 1ый вопрос
 
 
 @app.route('/', methods = ['GET'])
