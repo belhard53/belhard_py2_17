@@ -12,7 +12,7 @@ class STaskAdd(BaseModel):
 
 app = FastAPI()
 
-@app.get('/', tags=['ÐŸÑ€Ð¸Ð²ÐµÑ‚'])
+@app.get('/', tags=['Default'])
 async def home(q: str="*", filter: str=""):    
     return {'id':1, 'name':'Vasya', 'q':q, 'f':filter}
 

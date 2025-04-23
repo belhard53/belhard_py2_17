@@ -173,3 +173,5 @@ cython_debug/
 # PyPI configuration file
 .pypirc
 example/flask3/db/db_quiz.db
+example/fastapi/db/fastapi.db
+example/fastapi/db/fastapi.db

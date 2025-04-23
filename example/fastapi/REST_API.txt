@@ -47,7 +47,8 @@ HEAD — аналогичен GET, но возвращает только заг
     PUT - {name:quiz2} - обновить данные c id
     DELETE   - удалить по id
     
-/api/quizes?question_id=1 - все квизы с вопросом 1
+/api/quizes?question_id=1 - все квизы с вопросом id=1
+/api/quizes/1/questions - все вопросом квиза с id=1
 /api/questions?quiz_id=1    
 
 api/auth/ - отправить пас логин - возвращает токен

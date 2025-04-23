@@ -9,7 +9,13 @@ class User(db.Model):
     id = db.Column(db.Integer, primary_key = True)
     name = db.Column(db.String(25))
     quizes = db.relationship('Quiz', backref='user', 
-                             cascade = "all, delete, delete-orphan")
+                             cascade = "all, delete, delete-orphan",
+                             lazy='select')
+        # lazy - 
+            # select (по умолчанию)   Загружает всю коллекцию одним отдельным SELECT-запросом при первом обращении к атрибуту
+            # joined  Загружает коллекцию сразу через JOIN с основной таблицей
+            # subquery    Загружает коллекцию через подзапрос
+            # dynamic Возвращает query-объект, коллекция не загружается сразу, можно строить запросы
 
     def __init__(self, name) -> None:
         super().__init__()
@@ -180,7 +186,8 @@ quiz.question.remove(question)
 db.session.commit()
 
 
-
-
+# получить связанные данные в обратную сторону
+question = db.session.query(Question).get(id)
+print(question.quiz) # распечатает все квизы в которые входит вопрос
 
 '''
