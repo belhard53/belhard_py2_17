@@ -82,8 +82,7 @@ class  DataRepository:
 
 
 
-class UserRepository:
-    
+class UserRepository:    
     @classmethod           
     async def add_user(cls, user: UserAdd) -> int:
         async with new_session() as session:
@@ -108,6 +107,7 @@ class UserRepository:
             # query = select(UserOrm).filter(user_filter).limit(limit).offset(offset)
             res = await session.execute(query)
             users = res.scalars().all()
+            users[0].quiz
             return users
             
     @classmethod
@@ -119,8 +119,7 @@ class UserRepository:
             user = res.scalars().first()
             return user
         
-class QuizRepository:
-    
+class QuizRepository:    
     @classmethod           
     async def add_quiz(cls, quiz: QuizAdd) -> int:
         async with new_session() as session:

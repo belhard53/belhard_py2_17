@@ -1,0 +1,10 @@
+dgango-admin 
+	startproject my_project(или setting) . - точка для того что бы в этой папке
+
+manage.py 
+	runserver
+	startapp
+	makemigrations - создать миграции на основе моделей в app
+	migrate - провести миграции
+	createsuperuser
+	
