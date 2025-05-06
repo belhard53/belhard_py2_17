@@ -60,3 +60,8 @@ def user_info(request, name, age):
 
 def multi_path(request, path):
     return HttpResponse(f"вы попали на {path}")
+
+def users(r):
+    a = 1
+    users = ['user1', 'user2', 'user3', 'user4']
+    return render(r, 'users.html', context={'users':users, "var":a, "var2":12345} )
