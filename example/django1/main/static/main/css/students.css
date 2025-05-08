@@ -28,3 +28,9 @@
     padding: 20px;
     
 }
+
+.thumb{
+    width: 2.5em;
+    height: 2.5em;
+    margin-top: 3px;
+}

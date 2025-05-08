@@ -17,10 +17,14 @@
     <div class="students-cell"> ФОТО  </div>
 
     {% for s in students %}
-        <div class="students-cell">{{ forloop.counter}}</div>        
+        <!-- <div class="students-cell">{{ forloop.counter}}</div> -->
+        <div class="students-cell"> <a href="{% url 'student' s.id %}">{{ forloop.counter}}</a></div>        
+        
         <!-- <div class="students-cell"> <a href="/students/{{s.id}}/">{{s.name}} {{s.surname}}</a></div> -->
         <!-- <div class="students-cell"> <a href="{{s.id}}/">{{s.name}} {{s.surname}}</a></div> -->
-        <div class="students-cell"> <a href="{% url 'student' s.id %}">{{s.name}} {{s.surname}}</a></div>        
+        <!-- <div class="students-cell"> <a href="{% url 'student' s.id %}">{{s.name}} {{s.surname}}</a></div>         -->
+        <div class="students-cell"> <a href="{{ s.get_absolute_url }}">{{s.name}} {{s.surname}}</a></div>        
+        
         <div class="students-cell"> {{s.age}} </div>
         <div class="students-cell"> {{s.sex}} {{s.get_sex_display}} </div>            
         <div class="students-cell">
