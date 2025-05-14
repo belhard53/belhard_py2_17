@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %} Добавить Студента {% endblock %}
+
+
+
+{% block content1_head %}
+    <h2>Добавить студент 1</h2>
+{% endblock %}
+
+
+{% block content1 %}
+    <form class="persons_forms" method="post" 
+               action="{% url 'student_add' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <!-- for field in form
+            + -->
+
+
+        <input class="add_button" type="submit" value="OK">
+
+
+    </form>
+
+
+{% endblock %}
+
+
+
+
+{% block content2_head %}
+    <h2>Заголовок 2</h2>
+{% endblock %}
+
+{% block content2 %}
+    <h1>hellllooo 2</h1>
+{% endblock %}
+
+

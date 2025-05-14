@@ -35,4 +35,20 @@
     {% endfor %}
 </div>
 
+<div class="add_button"><a href="{% url 'student_add' %}">Добавить</a></div>
+
+
+<!-- заменить на эту кнопку чтобы студент добавлялся в новом окне -->
+    <div class="add_button"><a class="add-related" href="{% url 'student_add' %}?_popup=1">Добавить в POPUP</a></div>    
+    
+    <script>
+        // скрипт для всплывающего окна
+    document.querySelector('.add-related').addEventListener('click', function(event) {
+        event.preventDefault();
+        const url = this.getAttribute('href');
+        window.open(url, 'popup', 'width=800,height=600');
+    });
+    
+    </script>
+
 {% endblock %}

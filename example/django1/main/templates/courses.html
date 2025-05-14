@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %} Курсы {% endblock %}
+
+{% block content1_head %}
+    <h2>Курсы</h2>
+{% endblock %}
+
+{% block content1 %}
+    <div class="courses">
+        <div class="courses-cell">Номер</div>
+        <div class="courses-cell">Название</div>            
+        <div class="courses-cell">Дата1</div>            
+        <div class="courses-cell">Дата2</div>            
+        <div class="courses-cell">Описание</div>            
+        {% for c in courses %}
+            <div class="courses-cell">{{ forloop.counter}}</div>  
+            <!-- <div class="courses-cell"> <a href=" c.get_absolute_url }}">{{c}} </a></div> -->
+            <div class="courses-cell"> <a href="{{ c.id }}">{{c}} </a></div>
+            <div class="courses-cell">{{c.start_date}}  </div>
+            <div class="courses-cell">{{c.end_date}}  </div>
+            <div class="courses-cell">{{c.description}}  </div>
+        {% endfor %} 
+    </div>
+    <div class="add_button"><a href="{% url 'course_add' %}">Добавить</a></div>
+{% endblock %}

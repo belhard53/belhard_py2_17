@@ -78,6 +78,9 @@ class Student(models.Model):
         return reverse('student2', kwargs={"name_slug":self.slug})
     
     
+    def get_edit_url(self):        
+        return reverse('student_edit', kwargs={"id":self.pk})
+    
     # # для того чтобы slug создавался автоматически
     # pip install pytils
     # from pytils.translit import slugify
@@ -115,6 +118,12 @@ class Course(models.Model):
     
     def __str__(self):
         return f"{self.get_name_display()} - {self.course_num}"
+    
+    def get_absolute_url(self):
+        return reverse('course', kwargs={"id":self.id})
+    
+    def get_edit_url(self):        
+        return reverse('course_edit', kwargs={"id":self.pk})
     
     class Meta:
         unique_together = [['name', 'course_num']]
