@@ -1,0 +1,53 @@
+sudo apt install nginx
+
+
+nginx -t - проверить файл конфигурации
+
+nginx -s reload
+
+
+
+--------------------- etc/nginx/nginx.conf ------
+
+http{
+
+	# для сжатия стаики. в запросе появляется хидер Contetnt-Encoding:gzip
+	gzip on; 
+	gzip_types aplications/javascript;
+	gzip_comp_leevl 6;
+
+
+	# для балансировки нагрузки
+	upstream api {
+		server loczlhost:7771;
+		server loczlhost:7772;
+	}
+
+
+	server{
+	
+		listen 80;
+		server_name example.com www.example.com;
+		
+		# отдать статику по адресу /
+		location /  {
+
+		  root <папка где индекс>
+		  undex какой файл в этой папке
+		  
+		  # если нужен редирект - появляется хидер Location:<куда>
+		  return 301 <адрес редиректа> 
+
+		}
+		
+		# 
+		locatioon /api {
+			proxi_pass http://api/; # указывается название из upstream
+		
+		}
+
+	}
+
+
+}
+

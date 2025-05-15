@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %} Курс {% endblock %}
+
+{% block content1_head %}
+    <h2>Курс</h2>
+{% endblock %}
+
+{% block content1 %}
+    
+           
+            <div class="course">{{course}}  </div>
+            <div class="course">{{course.start_date}}  </div>
+            <div class="course">{{course.end_date}}  </div>
+            <div class="course">{{course.description}}  </div>
+        
+
+            <div class="add_button"><a href="{{ course.get_edit_url }}">Редактировать</a></div>
+{% endblock %}

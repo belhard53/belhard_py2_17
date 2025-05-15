@@ -1,0 +1,71 @@
+docker
+https://labs.play-with-docker.com/		
+
+
+image - образ - типа CD-диск, программма с него распаковывается в контейнер
+container - контейнер - виртуалка в которой запускается образ с его  настройками
+Dockerfile — это текстовый файл, который содержит инструкции для сборки Docker-образа
+
+частые ключи для run
+	-d — detach - запустить контейнер в фоне
+	-it — interactive - запустить контейнер в интерактивном режиме
+	-t — tty - запуск псевдотерминала контейнера
+	-p hostPort:containerPort - проброс портов из контейнера наружу
+	-P проброс случайных портов
+	-e/—env - проброс переменных окржужения к контейнер
+	-v - монтирует внешнюю папку в контейнер
+	--rm - удалить после выполнения
+
+примеры команд
+	docker run hello-world
+	docker pull busybox
+	docker run busybox
+	docker run -d - откреппить от терминала - detached mode.
+	ocker images - скаченные 
+	docker run busybox echo "hello from busybox"
+	docker ps
+	docker ps -a
+	docker run -it busybox shls
+	docker run -it busybox sh - консоль внутри контейнера
+		rm -rf bin - удалить папку bin - перестанет работать Ls
+		выйти и запустить еще раз - будет все работать
+	docker run --help
+	docker rm 305297d7a235 - удалить отработтаный контейнер
+	docker rm $(docker ps -a -q -f status=exited) удалить все отработанные
+
+	docker run -p 80:80 nginx - запустить и открыть порты внешний:внутренний
+	docker port static-site - посмотреть порты
+	docker build -t my_image_name - создать свой образ
+	docker push user/my_image_name - отправить образ на докерхаб
+			
+	docker run --rm -v $(pwd):/app my-python-app -v $(pwd):/app: 
+			Монтирует текущую директорию ($(pwd)) в директорию /app внутри контейнера.
+
+	docker run --rm -v $(pwd):/app python python app/main.py
+		запустит main.py 
+
+
+Dockerfile
+	FROM - всегда первая, задает базовый образ.
+	VOLUME - создает точку монтирования для данных.
+	USER - определяет пользователя для выполнения команд.
+	EXPOSE - указывает, какие порты будут открыты.
+	ENV - задает переменные окружения.
+	COPY/ADD - копируют файлы в образ.
+	RUN - выполняет команды на этапе сборки (например, установка зависимостей).
+	CMD/ENTRYPOINT - определяют, что будет выполняться при запуске контейнера.
+
+
+			
+
+
+			
+
+	
+
+
+		
+
+
+
+

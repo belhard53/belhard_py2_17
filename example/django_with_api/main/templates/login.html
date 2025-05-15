@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %} Студент {% endblock %}
+
+
+
+{% block content1_head %}
+    <h2>ЛОГИН</h2>
+{% endblock %}
+
+
+
+{% block content1 %}
+    
+    <form class="persons_forms_reg" method="post">
+
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <input type="submit" value="Войти">
+
+
+</form> 
+
+{% endblock %}
+
+
+
+{% block content2_head %}
+    <h2>Заголовок 2</h2>
+{% endblock %}
+
+{% block content2 %}
+    <h1>hellllooo 2</h1>
+{% endblock %}

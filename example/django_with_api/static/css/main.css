@@ -1,0 +1,7 @@
+p:nth-child(2n){
+    color:rgb(102, 102, 191)
+}
+
+h1{
+    color: blueviolet;
+}

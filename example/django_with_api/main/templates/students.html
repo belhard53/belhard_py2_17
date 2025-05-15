@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block title %} Студенты {% endblock %}
+
+
+
+{% block content1_head %}
+    <h2>Студенты 1</h2>
+{% endblock %}
+
+{% block content1 %}
+    <div class="students">        
+        <div class="students-cell"> № </div>
+        <div class="students-cell"> ФИО</div>
+        <div class="students-cell"> Возраст  </div>
+        <div class="students-cell"> Пол  </div>
+        <div class="students-cell"> ФОТО  </div>
+
+        {% for s in students %}
+            <div class="students-cell">{{ forloop.counter}}</div>
+            <!-- <div class="students-cell"> <a href="{{ s.get_absolute_url }}?_to_field=id&_popup=1">{{s.name}} {{s.surname}}</a></div> -->
+            <div class="students-cell"> <a href="{{ s.get_absolute_url }}">{{s.name}} {{s.surname}}</a></div>
+            <div class="students-cell"> {{s.age}} </div>
+            <div class="students-cell"> {{s.get_sex_display}} </div>            
+            <div class="students-cell">
+            {% if s.photo %}
+                <img class="img-student thumb" src="{{ s.photo.url }}" alt="Нету">
+            {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+    
+    <div class="add_button"><a href="{% url 'student_add' %}">Добавить</a></div>
+
+    
+    <!-- заменить на эту кнопку чтобы студент добавлялся в новом окне -->
+    <!-- <div class="add_button"><a class="add-related" href="{% url 'student_add' %}?_popup=1">Добавить в POPUP</a></div> -->    
+    
+    <script>
+        // скрипт для всплывающего окна
+    document.querySelector('.add-related').addEventListener('click', function(event) {
+        event.preventDefault();
+        const url = this.getAttribute('href');
+        window.open(url, 'popup', 'width=800,height=600');
+    });
+    
+    </script>
+
+{% endblock %}
+
+
+
+
+{% block content2_head %}
+    <h2>Заголовок 2</h2>
+{% endblock %}
+
+{% block content2 %}
+    <h1>hellllooo 2</h1>
+    
+{% endblock %}
+

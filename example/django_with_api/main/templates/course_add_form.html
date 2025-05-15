@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %} Добавить курс {% endblock %}
+
+
+
+{% block content1_head %}
+    <h2>Добавить курс 1</h2>
+{% endblock %}
+
+{% block content1 %}
+    <form class="persons_forms" action="" method="post">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <input class = "add_button" type="submit" value="OK">
+
+
+    </form>
+
+
+{% endblock %}
+
+
+
+
+{% block content2_head %}
+    <h2>Заголовок 2</h2>
+{% endblock %}
+
+{% block content2 %}
+    <h1>hellllooo 2</h1>
+{% endblock %}

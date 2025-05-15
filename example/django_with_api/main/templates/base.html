@@ -1,0 +1,77 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Академия-Ы</title>    
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/students.css' %}">
+</head>
+<body>
+    
+    <header >Header        
+        <nav>
+            <ul class="main-menu">
+                {% block main_menu %}
+                <li><a href="{% url 'index' %}">Главная</a></li>
+                <li><a href="{% url 'students' %}">Студенты</a></li>
+                <li><a href="{% url 'courses' %}">Курсы</a></li>
+                <li><a href="">Журнал</a></li>
+
+                
+                {% if request.user.is_authenticated  %}
+                    <!-- будет показываться только если пользователь залогинился -->
+                    <li class="menu-rt menu-user">{{ user.username }}</li>
+                    <li class="menu-rt"><a href="/logout/">Выход</a></li>
+                {% else %}
+                    <li class="menu-rt"><a href="/login/">Логин</a></li>
+                    <li class="menu-rt"><a href="/reg/">Регистрация</a></li>                
+                {% endif %}
+
+                <li><a href="/admin/">Админка</a></li>
+                {% endblock %}
+            </ul>
+        </nav> 
+        <div class="clear"></div>
+    </header>         
+    
+    <main>
+
+        <section class="info">
+            <p class="base-info">Section</p>
+            {% block content1_head %}
+                <h2>Это базовый шаблон</h2>
+                <h2>Все остальные шаблоны загружаются внутри него</h2>
+            {% endblock %}
+            
+            {% block content1 %}
+                Контент 1
+            {% endblock %}
+        </section>
+        
+        
+        <section class="content">   
+            <p class="base-info">Section</p>
+
+            {% block content2_head %}
+                
+            {% endblock %}
+            
+        
+            {% block content2 %}
+                Контент 2
+            {% endblock %}
+        
+    </section>
+    </main>  
+    
+    <aside>Aside</aside>   
+    
+    <footer>Footer</footer> 
+    
+
+    
+</body>
+
+</html>

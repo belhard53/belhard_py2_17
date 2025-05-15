@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %} ИЗМЕНИТЬ Студента {% endblock %}
+
+
+
+{% block content1_head %}
+    <h2>Изменить данные студента 1</h2>
+{% endblock %}
+
+
+{% block content1 %}
+    <form class="student_edit_forms" method="post" 
+                enctype="multipart/form-data">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <input class="add_button" type="submit" value="OK">
+
+
+    </form>
+
+
+{% endblock %}
+
+
+
+
+{% block content2_head %}
+    <h2>Заголовок 2</h2>
+{% endblock %}
+
+{% block content2 %}
+    <h1>hellllooo 2</h1>
+{% endblock %}

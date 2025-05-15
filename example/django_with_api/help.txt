@@ -1,0 +1,2 @@
+Регистрация с подтверждением email адреса
+https://proghunter.ru/articles/django-base-2023-registration-with-email-address-verification-24

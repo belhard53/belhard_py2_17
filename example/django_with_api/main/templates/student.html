@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %} Студенты {% endblock %}
+
+
+
+{% block content1_head %}
+    <h2>Студент 1</h2>
+{% endblock %}
+
+{% block content1 %}
+<div class="st-info">
+    <div class="photo">
+        {% if student.photo %}
+            <img class="st-photo" src="{{student.photo.url}}" alt='Нет ФОТО'>
+        {% else %}
+            <img class="st-photo" src="{% static 'pic/no-photo.png' %}" alt='Нет ФОТО'> 
+        {% endif %}
+    </div>
+    <div class="info">
+        <p> Фамилия: {{ student.surname }}</p> 
+        <p> Имя: {{ student.name }}</p> 
+        <p> Возраст: {{ student.age }}</p>
+        <p> Курсы: 
+            {% for c in student.course.all %}
+                {{c}}{% if not forloop.last %}, {% endif %}
+            {% endfor %} 
+        </p>
+    </div>
+</div>
+<!-- <div class="add_button"><a href="/students/edit/{{ student.id }}/">Редактировать1</a></div> -->
+<div class="add_button"><a href="{{ student.get_edit_url }}">Редактировать</a></div>
+{% endblock %}
+
+
+
+{% block content2_head %}
+    <h2>Заголовок 2</h2>
+{% endblock %}
+
+{% block content2 %}
+    <h1>hellllooo 2</h1>
+{% endblock %}

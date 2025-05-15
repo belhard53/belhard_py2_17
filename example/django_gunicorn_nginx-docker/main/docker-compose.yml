@@ -1,0 +1,37 @@
+version: "3.8"
+
+services:
+  web:
+    build: .
+    command: "gunicorn main.wsgi:application --bind 0.0.0.0:8000"
+    ports:
+      - "8000:8000"
+    restart: always
+    volumes:
+      - .:/app
+      - ./static:/home/app/web/static
+    environment:
+      - ALLOWED_HOSTS=bots1.from.duck.fvds.ru 82.146.58.223 127.0.0.1 localhost [::] 0.0.0.0
+      - SECRET_KEY=django-insecure
+      - DEBUG=0
+
+  nginx:
+    image: nginx:1.25-alpine3.17-slim
+    volumes:
+      - ./conf.d:/etc/nginx/conf.d
+      - ./log:/var/log/nginx
+      - ./static:/home/app/web/static
+      - ./certbot/www:/var/www/certbot/:ro
+      - ./certbot/conf/:/etc/nginx/ssl/:ro
+    ports:
+      - "80:80"
+      - "443:443"
+    depends_on:
+      - web
+    restart: always
+
+  certbot:
+    image: certbot/certbot:latest
+    volumes:
+      - ./certbot/www:/var/www/certbot/:rw
+      - ./certbot/conf/:/etc/letsencrypt/:rw
