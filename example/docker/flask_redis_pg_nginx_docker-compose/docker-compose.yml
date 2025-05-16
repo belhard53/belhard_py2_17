@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  web:
+    build: ./app1
+    # command: gunicorn --workers 3 --bind 0.0.0.0:8000 your_app.wsgi:application
+    ports:
+      - "5000:5000"
+    depends_on: # зависимости - гарантирует что редис и дб запустятся перед веб
+      - redis
+      - db
+
+  redis:
+    image: redis:alpine
+    ports:
+      - "6379:6379"
+
+  db:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: testdb
+    volumes:
+      - postgres_data1:/var/lib/postgresql/data # создаем волюм на уровне докер - /var/lib/docker/volumes
+      # - /app1/init_sql:/docker-entrypoint-initdb.d  # Монтируем скрипт инициализации
+
+
+  nginx:
+      image: nginx:latest
+      ports:
+        - "80:80"
+      volumes:
+        - ./app1/nginx.conf:/etc/nginx/nginx.conf:ro # :ro - только чтение read only
+      depends_on:
+        - web
+      restart: unless-stopped
+
+
+volumes: # создаем волюм на уровне докер - /var/lib/docker/volumes
+  postgres_data1:
